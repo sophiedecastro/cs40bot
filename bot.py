@@ -2,6 +2,7 @@ import praw
 import random
 import datetime
 
+# WORKING
 # FIXME:
 # copy your generate_comment functions from the week_07 lab here
 
@@ -119,7 +120,6 @@ def generate_comment_5():
     text = act + ' ' + trump + ' out of ' + place + ' ' + date + '. He cannot be president for another term after the way he handled ' + covid + '.'
     return text
 
-#put this into for loop
 def generate_comment():
     '''
     This function should randomly select one of the 6 functions above,
@@ -147,7 +147,7 @@ def generate_comment():
     text = random.choice(comments)()
     return text
 
-# comment these lines out? 
+# comment these lines out for now
 # for i in range(10):
 #         print(generate_comment())
 
@@ -172,6 +172,7 @@ submission = reddit.submission(url=reddit_debate_url)
 
 start_time = datetime.datetime.now()
 
+# WORKING
 # while True:
 # or a for loop
 if True: 
@@ -254,11 +255,12 @@ if True:
         # submission.reply(generate_comment())
 
     # if not has_commented: # should be if has_not_commented == True? 
-    # WORKING ??? can't tell if this is working because I've already commented
+    # WORKING 
         # FIXME (task 2)
         
     if has_not_commented == len(all_comments):
         submission.reply(generate_comment())
+        # print(generate_comment())
 
         # if you have not made any comment in the thread, then post a top level comment
         #
@@ -266,9 +268,8 @@ if True:
         # use the generate_comment() function to create the text,
         # and the .reply() function to post it to reddit
 
-    
     # else: 
-    # WORKING i think
+    # WORKING
         # FIXME (task 3): filter the not_my_comments list to also remove comments that 
         # you've already replied to
         # HINT:
@@ -277,7 +278,6 @@ if True:
         # and the inner for loop loops over all the replies of the current comment from the outer loop,
         # and then an if statement checks whether the comment is authored by you or not
         
-# not reaching this part of the code?
         # replied works like a switch, go through each reply one by one 
     else:
         comments_without_replies = []
@@ -299,15 +299,17 @@ if True:
         # and so you will have to be careful to check that this code is in fact working correctly
         print('len(comments_without_replies)=',len(comments_without_replies))
 
-# NOT WORKING
+    # ALMOST WORKING
         # FIXME (task 4): randomly select a comment from the comments_without_replies list,
         # and reply to that comment
-        # TypeError: 'Comment' object is not callable
-        for comment in comments_without_replies:
-            # print(type(comment)) # <class 'praw.models.reddit.comment.Comment'>
-            if type(comment) is praw.models.reddit.comment.Comment:
-                comment = random.choice(comments_without_replies)
-                comment.reply(generate_comment())
+
+        # i can't tell if it is actually replying/posting a comment???     
+        comment = reddit.comment(id=random.choice(comments_without_replies))
+        print('id =', random.choice(comments_without_replies))
+        comment.reply(generate_comment())
+        print(generate_comment())
+    
+        # print(type(comments_without_replies))
 
         # use random.choice() with list 
         # also use submission.reply(generate_comment())
@@ -317,7 +319,7 @@ if True:
         # use the generate_comment() function to create the text,
         # and the .reply() function to post it to reddit
 
-    # WORKING I THINK !
+    # ALMOST WORKING 
     # FIXME (task 5): select a new submission for the next iteration;
     # your newly selected submission should have a 50% chance of being the original submission
     # (url in the reddit_debate_url variable)
@@ -332,16 +334,33 @@ if True:
 
     # random.random() returns random object float number between 0 and 1 
 
-    # was working but now error: AttributeError: 'list' object has no attribute 'top'
+    # works for 50% chance when getting original submission but error for other part: AttributeError: 'list' object has no attribute 'top'
 
+    # print(type(all_comments))
+    
     result = random.random()
-    if result >= 0.5:
-        print('original submission')
-        submission = reddit.submission(url='https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/?')
-        submission.reply(generate_comment())
-    if result < 0.5:
+    all_submissions = []
+    # if result >= 0.5:
+    #     print('original submission')
+        # submission = reddit.submission(url='https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/?')
+        # submission.reply(generate_comment())
+    if result: #< 0.5: # this part not quite working yet
         print('top subreddit submissions')
-        all_submissions = all_comments.top() # add parameters
+        
+        # print(type(all_submissions))
+        for submission in reddit.subreddit("csci040").top("all"):
+            # print(submission.title)
+            all_submissions.append(submission)
+        # print(len(all_submissions))
         submission_choice = random.choice(all_submissions)
+        print(submission_choice)
         submission = reddit.submission(url='https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/?')
         submission.reply(generate_comment())
+        print(generate_comment())
+
+        # print(type(subreddit)) # <class 'praw.models.reddit.subreddit.Subreddit'>
+        # for post in subreddit:
+        #     all_submissions.append(post)
+        # # all_submissions = subreddit.top() # add parameters
+        # print(all_submissions)
+        
