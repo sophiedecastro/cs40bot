@@ -125,24 +125,6 @@ def generate_comment():
     This function should randomly select one of the 6 functions above,
     call that function, and return its result.
     '''
-    '''
-    # for i in range(10):
-        options = [0,1,2,3,4,5]
-        choice = random.choice(options)
-        if choice==0:
-            generate_comment_0()
-        if choice==1:
-            generate_comment_1()
-        if choice==2:
-            generate_comment_2()
-        if choice==3:
-            generate_comment_3()
-        if choice==4:
-            generate_comment_4()
-        if choice==5:
-            generate_comment_5()
-          '''
-
     comments = [generate_comment_0, generate_comment_1, generate_comment_2, generate_comment_3, generate_comment_4, generate_comment_5] 
     text = random.choice(comments)()
     return text
@@ -176,7 +158,8 @@ start_time = datetime.datetime.now()
 # CHANGE TO WHILE BEFORE RUNNING FOR SUBMISSION
 # while True:
 # or use a for loop
-if True: 
+# if True: 
+for i in range(5): # have to run more than once for Task 5 to work
 
     # printing the current time will help make the output messages more informative
     # since things on reddit vary with time
