@@ -328,13 +328,12 @@ if True:
     
     result = random.random()
     all_submissions = []
-    # if result >= 0.5:
-    #     print('original submission')
-        # submission = reddit.submission(url='https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/?')
-        # submission.reply(generate_comment())
-    if result: #< 0.5: # this part not quite working yet
-        print('top subreddit submissions')
-        
+    if result >= 0.5:
+        print('original submission')
+        submission = reddit.submission(url='https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/?')
+        submission.reply(generate_comment())
+    if result < 0.5:
+        print('top subreddit submission')
         # print(type(all_submissions))
         for submission in reddit.subreddit("csci040").top("month"):
             # print(submission.title)
@@ -344,7 +343,7 @@ if True:
         submission_choice = random.choice(all_submissions)
         submission = reddit.submission(id=submission_choice)
         print('submission_id =',submission_choice)
-        print(type(submission_choice))
         print(submission_choice.title)
+        # print(type(submission_choice))        
         # submission.reply(generate_comment())
         # print(generate_comment())
