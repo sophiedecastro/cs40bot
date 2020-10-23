@@ -296,6 +296,28 @@ while True:
         # use the generate_comment() function to create the text,
         # and the .reply() function to post it to reddit
 
+
+    # ALMOST WORKING - EXTRA CREDIT: UPVOTE COMMENT
+    upvoted = False
+    for comment in all_comments:
+        if 'biden' in comment.body.lower() and upvoted == False:
+            comment.upvote()
+            upvoted = True
+            # print('upvote comment')
+    # can check if i've already upvoted and if so skip
+
+    # ALMOST WORKING - EXTRA CREDIT: UPVOTE SUBMISSION
+    
+    # for submission in reddit.subreddit("csci040").top("month"):
+    #     upvoted = True
+    #     if 'biden' in submission.title.lower() and upvoted == True:
+    #         submission.upvote()
+    #         upvoted = False
+    #         print('upvote submission')
+
+        # elif 'trump' in submission.title.lower():
+        #     submission.downvote()
+
     # WORKING 
     # FIXME (task 5): select a new submission for the next iteration;
     # your newly selected submission should have a 50% chance of being the original submission
