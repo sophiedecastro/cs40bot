@@ -25,4 +25,4 @@ list of tasks completed:
     * tbd
     * tbd 
 
-list of tasks not completed:
+(list of tasks not completed:)
