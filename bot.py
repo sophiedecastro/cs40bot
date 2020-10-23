@@ -207,7 +207,6 @@ while True:
             my_comments.append(comment)
         else:
             not_my_comments.append(comment)
-
     # HINT:
     # checking if this code is working is a bit more complicated than in the previous tasks;
     # reddit does not directly provide the number of comments in a submission
@@ -231,11 +230,9 @@ while True:
 
     # WORKING 
         # FIXME (task 2)
-        
     if has_not_commented == len(all_comments):
         submission.reply(generate_comment())
         # print(generate_comment())
-
         # if you have not made any comment in the thread, then post a top level comment
         #
         # HINT:
@@ -250,7 +247,6 @@ while True:
         # the outer for loop loops over has_not_comments,
         # and the inner for loop loops over all the replies of the current comment from the outer loop,
         # and then an if statement checks whether the comment is authored by you or not
-        
         # replied works like a switch, go through each reply one by one 
 
     else:
@@ -277,6 +273,7 @@ while True:
         # FIXME (task 4): randomly select a comment from the comments_without_replies list,
         # and reply to that comment
         try:
+            sorted_comments_without_replies = sorted(comments_without_replies key=comment.score)
             comment = reddit.comment(id=random.choice(comments_without_replies))
             print('comment_id =', random.choice(comments_without_replies))
             comment.reply(generate_comment())
@@ -307,13 +304,12 @@ while True:
     # can check if i've already upvoted and if so skip
 
     # ALMOST WORKING - EXTRA CREDIT: UPVOTE SUBMISSION
-    
-    # for submission in reddit.subreddit("csci040").top("month"):
-    #     upvoted = True
-    #     if 'biden' in submission.title.lower() and upvoted == True:
-    #         submission.upvote()
-    #         upvoted = False
-    #         print('upvote submission')
+    upvoted = True
+    for submission in reddit.subreddit("csci040").top("month"):
+        if 'biden' in submission.title.lower() and upvoted == True:
+            submission.upvote()
+            upvoted = False
+            # print('upvote submission')
 
         # elif 'trump' in submission.title.lower():
         #     submission.downvote()
