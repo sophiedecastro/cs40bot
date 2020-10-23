@@ -18,11 +18,12 @@ score: tbd/20
 
 list of tasks completed:
 
-* 6 tasks from bot.py file (2 points/task x 6 tasks): 12 points
-* github repo: 2 points
-* at least 100 comments: 2 points
+* Each task is worth 2 points. (6 tasks * 2 points/task = 12 points)
+* The github repo is worth 2 points.
+* Getting at least 100 comments posted is worth another 2 points.
 * extra credit:
     * tbd
-    * tbd 
+    * tbd
+ 
 
 (list of tasks not completed:)
