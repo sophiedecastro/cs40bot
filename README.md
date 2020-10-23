@@ -14,8 +14,11 @@ permalink to thread here
 
 ## score & tasks 
 
-score here
+score: /20
 
-list of tasks completed here
+list of tasks completed:
 
-list of tasks not completed here
+*6 tasks from bot.py file: 12 points
+*github repo: 2 points
+
+list of tasks not completed:
