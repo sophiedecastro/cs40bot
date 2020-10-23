@@ -10,7 +10,7 @@ image of thread here
 
 short description here
 
-i will put the [permalink to thread here](google.com)
+i will put the [permalink to thread here](www.google.com)
 
 ## score & tasks 
 
