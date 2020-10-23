@@ -18,7 +18,7 @@ score: /20
 
 list of tasks completed:
 
-*6 tasks from bot.py file: 12 points
-*github repo: 2 points
+* 6 tasks from bot.py file: 12 points
+* github repo: 2 points
 
 list of tasks not completed:
