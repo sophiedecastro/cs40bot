@@ -156,10 +156,10 @@ start_time = datetime.datetime.now()
 
 # WORKING
 # CHANGE TO WHILE BEFORE RUNNING FOR SUBMISSION
-# while True:
+while True:
 # or use a for loop
 # if True: 
-for i in range(5): # have to run more than once for Task 5 to work
+# for i in range(5): # have to run more than once for Task 5 to work
 
     # printing the current time will help make the output messages more informative
     # since things on reddit vary with time
@@ -276,11 +276,15 @@ for i in range(5): # have to run more than once for Task 5 to work
     # WORKING
         # FIXME (task 4): randomly select a comment from the comments_without_replies list,
         # and reply to that comment
-
-        comment = reddit.comment(id=random.choice(comments_without_replies))
-        print('comment_id =', random.choice(comments_without_replies))
-        comment.reply(generate_comment())
+        try:
+            comment = reddit.comment(id=random.choice(comments_without_replies))
+            print('comment_id =', random.choice(comments_without_replies))
+            comment.reply(generate_comment())
+        except:
+            pass
         # print(generate_comment())
+        # continue is for while or for loops -- would skip task 5 
+        # pass does nothing, better to use when not sure
     
         # print(type(comments_without_replies))
 
