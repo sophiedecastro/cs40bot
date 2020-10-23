@@ -175,7 +175,7 @@ while True:
     # WORKING
     # FIXME (task 0): get a list of all of the comments in the submission
     # HINT: this requires using the .list() and the .replace_more() functions
-    submission.comments.replace_more(limit=1) # set limit = None to get all top level comments, set = 1 while debugging/writing -- or set to 0? 
+    submission.comments.replace_more(limit=None) # set limit = None to get all top level comments, set = 1 while debugging/writing -- or set to 0? 
     # for limit None, goes through entire comment tree
     # for limit = 1, will go that level deep
     all_comments = []
@@ -273,7 +273,7 @@ while True:
         # FIXME (task 4): randomly select a comment from the comments_without_replies list,
         # and reply to that comment
         try:
-            sorted_comments_without_replies = sorted(comments_without_replies key=comment.score)
+            # sorted_comments_without_replies = sorted(comments_without_replies key=comment.score) -- figure this part out
             comment = reddit.comment(id=random.choice(comments_without_replies))
             print('comment_id =', random.choice(comments_without_replies))
             comment.reply(generate_comment())
