@@ -10,11 +10,11 @@ image of thread here
 
 short description here
 
-permalink to thread here
+i will put the [permalink to thread here](google.com)
 
 ## score & tasks 
 
-score: /20
+score: tbd/20
 
 list of tasks completed:
 
@@ -23,5 +23,5 @@ list of tasks completed:
 * extra credit:
     * tbd
     * tbd 
-    
+
 list of tasks not completed:
