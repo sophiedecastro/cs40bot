@@ -280,10 +280,10 @@ while True:
                 comment.reply(generate_comment())
             except:
                 pass
-        except:
+        except: #AssertionError
             print('exception found')
             print('starting to sleep')
-            time.sleep(10)
+            time.sleep(60)
             print('done sleeping')
 
         # print(generate_comment())
