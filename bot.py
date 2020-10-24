@@ -1,6 +1,7 @@
 import praw
 import random
 import datetime
+import time
 
 # WORKING
 # FIXME:
@@ -268,17 +269,23 @@ while True:
         # this is the most difficult of the tasks,
         # and so you will have to be careful to check that this code is in fact working correctly
         print('len(comments_without_replies)=',len(comments_without_replies))
-
+        try:
     # WORKING
         # FIXME (task 4): randomly select a comment from the comments_without_replies list,
         # and reply to that comment
-        try:
-            # sorted_comments_without_replies = sorted(comments_without_replies key=comment.score) -- figure this part out
-            comment = reddit.comment(id=random.choice(comments_without_replies))
-            print('comment_id =', random.choice(comments_without_replies))
-            comment.reply(generate_comment())
+            try:
+                # sorted_comments_without_replies = sorted(comments_without_replies key=comment.score) -- figure this part out
+                comment = reddit.comment(id=random.choice(comments_without_replies))
+                print('comment_id =', random.choice(comments_without_replies))
+                comment.reply(generate_comment())
+            except:
+                pass
         except:
-            pass
+            print('exception found')
+            print('starting to sleep')
+            time.sleep(10)
+            print('done sleeping')
+
         # print(generate_comment())
         # continue is for while or for loops -- would skip task 5 
         # pass does nothing, better to use when not sure
