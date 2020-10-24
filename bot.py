@@ -138,7 +138,8 @@ def generate_comment():
 reddit = praw.Reddit('bot')
 
 # connect to the debate thread
-reddit_debate_url = 'https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/'
+# reddit_debate_url = 'https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/'
+reddit_debate_url = 'https://www.reddit.com/r/csci040temp/comments/jhb20w/2020_debate_thread/'
 submission = reddit.submission(url=reddit_debate_url)
 
 # print('Total comments =',len(submission.comments)) 
@@ -312,10 +313,15 @@ while True:
 
     # ALMOST WORKING - EXTRA CREDIT: UPVOTE SUBMISSION
     upvoted = True
-    for submission in reddit.subreddit("csci040").top("month"):
+    downvoted = True
+    # for submission in reddit.subreddit("csci040").top("month"):
+    for submission in reddit.subreddit("csci040temp").top("month"):
         if 'biden' in submission.title.lower() and upvoted == True:
             submission.upvote()
             upvoted = False
+        elif 'trump' in submission.title.lower() and downvoted == True:
+            submission.downvote()
+            downvoted = False
             # print('upvote submission')
 
         # elif 'trump' in submission.title.lower():
@@ -342,12 +348,14 @@ while True:
     all_submissions = []
     if result >= 0.5:
         print('original submission')
-        submission = reddit.submission(url='https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/?')
+        # submission = reddit.submission(url='https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/?')
+        submission = reddit.submission(url='https://www.reddit.com/r/csci040temp/comments/jhb20w/2020_debate_thread/')
         submission.reply(generate_comment())
     if result < 0.5:
         print('top subreddit submission')
         # print(type(all_submissions))
-        for submission in reddit.subreddit("csci040").top("month"):
+        # for submission in reddit.subreddit("csci040").top("month"):
+        for submission in reddit.subreddit("csci040temp").top("day"):
             # print(submission.title)
             all_submissions.append(submission)
             # print(submission.title)
