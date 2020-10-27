@@ -25,5 +25,7 @@ list of tasks completed:
     * tbd
     * tbd
  
-
 (list of tasks not completed:)
+
+output of bot_counter.py file:
+```code block here
