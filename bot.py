@@ -177,7 +177,7 @@ while True:
     # WORKING
     # FIXME (task 0): get a list of all of the comments in the submission
     # HINT: this requires using the .list() and the .replace_more() functions
-    submission.comments.replace_more(limit=None) # set limit = None to get all top level comments, set = 1 while debugging/writing -- or set to 0? 
+    submission.comments.replace_more(limit=None) # set limit = None to get all level comments, set = 1 while debugging/writing
     # for limit None, goes through entire comment tree
     # for limit = 1, will go that level deep
     all_comments = []
@@ -233,7 +233,13 @@ while True:
     # WORKING 
         # FIXME (task 2)
     if has_not_commented == len(all_comments):
-        submission.reply(generate_comment())
+        try:
+            submission.reply(generate_comment())
+        except: 
+            print('exception found')
+            print('starting to sleep')
+            time.sleep(60)
+            print('done sleeping')
         # print(generate_comment())
         # if you have not made any comment in the thread, then post a top level comment
         #
@@ -270,10 +276,11 @@ while True:
         # this is the most difficult of the tasks,
         # and so you will have to be careful to check that this code is in fact working correctly
         print('len(comments_without_replies)=',len(comments_without_replies))
-        try:
+        
     # WORKING
         # FIXME (task 4): randomly select a comment from the comments_without_replies list,
         # and reply to that comment
+        try:
             try:
                 # sorted_comments_without_replies = sorted(comments_without_replies key=comment.score) -- figure this part out
                 comment = reddit.comment(id=random.choice(comments_without_replies))
@@ -301,7 +308,6 @@ while True:
         # use the generate_comment() function to create the text,
         # and the .reply() function to post it to reddit
 
-
     # ALMOST WORKING - EXTRA CREDIT: UPVOTE COMMENT
     upvoted = False
     for comment in all_comments:
@@ -319,9 +325,9 @@ while True:
         if 'biden' in submission.title.lower() and upvoted == True:
             submission.upvote()
             upvoted = False
-        elif 'trump' in submission.title.lower() and downvoted == True:
-            submission.downvote()
-            downvoted = False
+        # elif 'trump' in submission.title.lower() and downvoted == True:
+        #     submission.downvote()
+        #     downvoted = False
             # print('upvote submission')
 
         # elif 'trump' in submission.title.lower():
