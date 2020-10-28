@@ -177,7 +177,7 @@ while True:
     # WORKING
     # FIXME (task 0): get a list of all of the comments in the submission
     # HINT: this requires using the .list() and the .replace_more() functions
-    submission.comments.replace_more(limit=None) # set limit = None to get all level comments, set = 1 while debugging/writing
+    submission.comments.replace_more(limit=25) # set limit = None to get all level comments, set = 1 while debugging/writing
     # for limit None, goes through entire comment tree
     # for limit = 1, will go that level deep
     all_comments = []
@@ -235,7 +235,7 @@ while True:
     if has_not_commented == len(all_comments):
         try:
             submission.reply(generate_comment())
-        except: 
+        except praw.exceptions.RedditAPIException: 
             print('exception found')
             print('starting to sleep')
             time.sleep(60)
@@ -286,9 +286,9 @@ while True:
                 comment = reddit.comment(id=random.choice(comments_without_replies))
                 print('comment_id =', random.choice(comments_without_replies))
                 comment.reply(generate_comment())
-            except:
+            except praw.exceptions.RedditAPIException:
                 pass
-        except: #AssertionError
+        except praw.exceptions.RedditAPIException: #AssertionError
             print('exception found')
             print('starting to sleep')
             time.sleep(60)
