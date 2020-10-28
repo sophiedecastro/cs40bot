@@ -323,7 +323,7 @@ while True:
             upvoted = True
             downvoted = True
             # for submission in reddit.subreddit("csci040").top("month"):
-            for submission in reddit.subreddit("csci040temp").top("month"):
+            for submission in reddit.subreddit("csci040temp").top("all"):
                 if 'biden' in submission.title.lower() and upvoted == True:
                     submission.upvote()
                     upvoted = False
