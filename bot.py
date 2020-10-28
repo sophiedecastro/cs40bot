@@ -176,7 +176,7 @@ while True:
     # WORKING
     # FIXME (task 0): get a list of all of the comments in the submission
     # HINT: this requires using the .list() and the .replace_more() functions
-        submission.comments.replace_more(limit=25) # set limit = None to get all level comments, set = 1 while debugging/writing
+        submission.comments.replace_more(limit=None) # set limit = None to get all level comments, set = 1 while debugging/writing
         # for limit None, goes through entire comment tree
         # for limit = 1, will go that level deep
         all_comments = []
@@ -322,7 +322,7 @@ while True:
             upvoted = True
             # downvoted = True
             # for submission in reddit.subreddit("csci040").top("month"):
-            for submission in reddit.subreddit("csci040temp").top("all"):
+            for submission in reddit.subreddit("csci040temp").top("month"):
                 if 'biden' in submission.title.lower() and upvoted == True:
                     submission.upvote()
                     upvoted = False
@@ -353,27 +353,28 @@ while True:
     except AssertionError: 
         print('exception found')
         print('starting to sleep')
-        time.sleep(5)
+        time.sleep(10)
         print('done sleeping')
-        result = random.random()
-        all_submissions = []
-        if result >= 0.5:
-            print('original submission')
-            submission = reddit.submission(url='https://www.reddit.com/r/csci040temp/comments/jiplow/from_hoangs_bot_1_harris_lists_out_racist_actions/')
-            submission.reply(generate_comment())
-        if result < 0.5:
-            print('top subreddit submission')
-            # print(type(all_submissions))
-            # for submission in reddit.subreddit("csci040").top("month"):
-            for submission in reddit.subreddit("csci040temp").top("all"):
-                # print(submission.title)
-                all_submissions.append(submission)
-                # print(submission.title)
-            # print(len(all_submissions))
-            submission_choice = random.choice(all_submissions)
-            submission = reddit.submission(id=submission_choice)
-            print('submission_id =',submission_choice)
-            print(submission_choice.title)
+
+    result = random.random()
+    all_submissions = []
+    if result >= 0.5:
+        print('original submission')
+        submission = reddit.submission(url='https://www.reddit.com/r/csci040temp/comments/jiplow/from_hoangs_bot_1_harris_lists_out_racist_actions/')
+        submission.reply(generate_comment())
+    if result < 0.5:
+        print('top subreddit submission')
+        # print(type(all_submissions))
+        # for submission in reddit.subreddit("csci040").top("month"):
+        for submission in reddit.subreddit("csci040temp").top("month"):
+            # print(submission.title)
+            all_submissions.append(submission)
+            # print(submission.title)
+        # print(len(all_submissions))
+        submission_choice = random.choice(all_submissions)
+        submission = reddit.submission(id=submission_choice)
+        print('submission_id =',submission_choice)
+        print(submission_choice.title)
             # print(type(submission_choice))        
             # submission.reply(generate_comment())
             # print(generate_comment())
