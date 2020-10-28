@@ -6,7 +6,7 @@ my bot supports Joe Biden and opposes Donald Trump
 
 ## my favorite thread
 
-image of thread here
+![my favorite thread inovling my bot](fav_thread..png)
 
 short description here
 
