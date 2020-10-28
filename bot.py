@@ -138,7 +138,7 @@ def generate_comment():
 reddit = praw.Reddit('bot')
 
 # connect to the debate thread
-reddit_debate_url = 'https://www.reddit.com/r/csci040temp/comments/jhlt0p/from_hoangs_bot_1_there_is_a_votersuppression/'
+reddit_debate_url = 'https://www.reddit.com/r/csci040temp/comments/jiq05r/from_hoangs_bot_1_dallas_morning_news_poll_shows/'
 submission = reddit.submission(url=reddit_debate_url)
 
 # print('Total comments =',len(submission.comments)) 
@@ -280,9 +280,14 @@ while True:
     # WORKING
         # FIXME (task 4): randomly select a comment from the comments_without_replies list,
         # and reply to that comment
-            comment = reddit.comment(id=random.choice(comments_without_replies))
-            print('comment_id =', random.choice(comments_without_replies))
-            comment.reply(generate_comment())
+            if len(all_comments) <= 1000:
+                print('len(all_comments) <= 1000')
+                comment = reddit.comment(id=random.choice(comments_without_replies))
+                print('comment_id =', random.choice(comments_without_replies))
+                comment.reply(generate_comment())
+            else:
+                print('len(all_comments) > 1000')
+                # continue # use pass or continue? .. not working
         # try:
         #     try:
         #         # sorted_comments_without_replies = sorted(comments_without_replies key=comment.score) -- figure this part out
@@ -319,13 +324,13 @@ while True:
             # can check if i've already upvoted and if so skip
 
         # ALMOST WORKING - EXTRA CREDIT: UPVOTE SUBMISSION
-            upvoted = True
+            upvoted = False # put this after for loop?
             # downvoted = True
             # for submission in reddit.subreddit("csci040").top("month"):
             for submission in reddit.subreddit("csci040temp").top("month"):
-                if 'biden' in submission.title.lower() and upvoted == True:
+                if 'biden' in submission.title.lower() and upvoted == False:
                     submission.upvote()
-                    upvoted = False
+                    upvoted = True
             # elif 'trump' in submission.title.lower() and downvoted == True:
             #     submission.downvote()
             #     downvoted = False
@@ -360,7 +365,7 @@ while True:
     all_submissions = []
     if result >= 0.5:
         print('original submission')
-        submission = reddit.submission(url='https://www.reddit.com/r/csci040temp/comments/jiplow/from_hoangs_bot_1_harris_lists_out_racist_actions/')
+        submission = reddit.submission(url='https://www.reddit.com/r/csci040temp/comments/jiq05r/from_hoangs_bot_1_dallas_morning_news_poll_shows/')
         submission.reply(generate_comment())
     if result < 0.5:
         print('top subreddit submission')
@@ -372,9 +377,26 @@ while True:
             # print(submission.title)
         # print(len(all_submissions))
         submission_choice = random.choice(all_submissions)
-        submission = reddit.submission(id=submission_choice)
+        if submission_choice.title == '2020 Debate Thread':
+            print('submission_choice is 2020 Debate Thread')
+            continue # break?
+        elif submission_choice.title == 'HELLO DEBATE TEST HELLO':
+            print('submission_choice is HELLO DEBATE TEST HELLO')
+            continue # break?
+        else:
+            submission = reddit.submission(id=submission_choice)
         print('submission_id =',submission_choice)
         print(submission_choice.title)
             # print(type(submission_choice))        
             # submission.reply(generate_comment())
             # print(generate_comment())
+    
+    # extra credit: add new submissions
+    '''
+    for i in range(25):
+        reddit_debate_url = 'https://www.reddit.com/r/csci040temp/comments/jiq05r/from_hoangs_bot_1_dallas_morning_news_poll_shows/'
+        submission = reddit.submission(url=reddit_debate_url)
+        # connect to reddit thread
+        # get submission string
+        # post that string as new submission to cs thread
+    '''
