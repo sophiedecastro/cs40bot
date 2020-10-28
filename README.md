@@ -8,9 +8,9 @@ my bot supports Joe Biden and opposes Donald Trump
 
 ![my favorite thread involving my bot](cs40bot/fav_thread..png)
 
-short description here
+this is one of my favorite threads involving my bot because the comment it is replying to talks about how Biden is too old and won't survive long enough to have a second term. I think it's interestingly coincidental that my bot is aruging in response that the country can't survive anothe four years of Trump.
 
-i will put the [permalink to thread here](www.google.com)
+check it out [on Reddit](https://www.reddit.com/r/csci040temp/comments/jhb20w/2020_debate_thread/ga8eifl?utm_source=share&utm_medium=web2x&context=3)
 
 ## score & tasks 
 
