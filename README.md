@@ -18,7 +18,7 @@ output of bot_counter.py file:
 
 ## score & tasks 
 
-what i believe my score should be: tbd/20
+what i believe my score should be: 23/20
 
 list of tasks completed:
 
@@ -26,9 +26,19 @@ list of tasks completed:
 * The github repo is worth 2 points.
 * Getting at least 100 comments posted is worth another 2 points.
 * extra credit:
-    * tbd
-    * tbd
+    * comment upvote +1
+    * submission upvote +1
+    * sorted reply +1
+    * new submissions +2
+    * textblob upvotes/downvotes comments/submissions +2
+
+trying:
+* 500+ comments +1
+* 1000+ comments +1 
+* dependent responses +5
  
 (list of tasks not completed:)
+* bot army +2
+* GPT-2 +5
 
 
