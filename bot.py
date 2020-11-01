@@ -135,7 +135,7 @@ def generate_comment():
 reddit = praw.Reddit('bot')
 
 # connect to the debate thread
-reddit_debate_url = 'https://www.reddit.com/r/csci040temp/comments/jl71hm/if_he_tries_he_wont_succeed_bidens_lawyer_warns/'
+reddit_debate_url = 'https://www.reddit.com/r/csci040temp/comments/jm5twj/half_of_all_americans_want_trump_criminally/'
 submission = reddit.submission(url=reddit_debate_url)
 
 # print('Total comments =',len(submission.comments)) 
@@ -213,6 +213,7 @@ while True:
         print('len(all_comments)=',len(all_comments))
         # print(type(all_comments))
         # if len(all_comments) >= 1000:
+        #     pass
         #     break # stops code
 
     # extra credit: textblob + upvote/downvote comments/submissions
@@ -349,12 +350,17 @@ while True:
             #     comment
             # flat_comments = praw.helpers
             sorted_comments = sorted(comments_without_replies, key=lambda comment: comment.score, reverse=True)
+            comment.reply(generate_comment())
+            print('commented')
             # sorted(comments_without_replies, key=attrgetter('score'))
             # sorted_comments = sorted(comments_without_replies, key=comment.score)
             # print('sorted_comments=', sorted_comments)
-            for comment in sorted_comments:
-                # print(comment.score)
-                comment.reply(generate_comment())
+            # for comment in sorted_comments:
+            #     # print(comment.score)
+            #     comment.reply(generate_comment())
+            #     print('commented')
+            # comment = sorted_comments
+            
 
             # comment = reddit.comment(id=random.choice(comments_without_replies))
             # print('comment_id =', random.choice(comments_without_replies))
@@ -394,7 +400,7 @@ while True:
     all_submissions = []
     if result >= 0.5:
         print('original submission')
-        submission = reddit.submission(url='https://www.reddit.com/r/csci040temp/comments/jl71hm/if_he_tries_he_wont_succeed_bidens_lawyer_warns/')
+        submission = reddit.submission(url='https://www.reddit.com/r/csci040temp/comments/jm5twj/half_of_all_americans_want_trump_criminally/')
         submission.reply(generate_comment())
     if result < 0.5:
         print('top subreddit submission')
@@ -420,9 +426,10 @@ while True:
         print('len(all_comments)=', len(all_comments))
         if len(all_comments) >= 1000:
             print('len(all_comments) >= 1000')
+            pass
             # continue
-            submission_choice = random.choice(all_submissions)
-            submission = reddit.submission(id=submission_choice)
+            # submission_choice = random.choice(all_submissions)
+            # submission = reddit.submission(id=submission_choice)
         else:
             submission = reddit.submission(id=submission_choice)
         print('submission_id =',submission_choice)
