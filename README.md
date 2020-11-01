@@ -30,6 +30,9 @@ NOTE: the number valid_comments is what will be used to determine your extra cre
 Sophies-MacBook-Air:cs40bot SophieD$
 ```
 
+screenshot of bot_counter.py output: 
+![screenshot of bot_counter.py output](bot500).png)
+
 ## score & tasks 
 
 what i believe my score should be: 24/20
