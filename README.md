@@ -33,10 +33,9 @@ list of tasks completed:
     * Make your bot reply to highly upvoted comments before replying to lower upvoted comments. +1
     * Have your bot post new submissions to the /r/csci040 subreddit. These submissions should be from the top submissions of a political subreddit that supports your favorite presidential candidate (e.g. /r/politics or /r/conservative). Your bot must post at least 20 of these submissions to receive the extra credit. +2
     * Use the textblob library to measure the sentiment of every comment/submission... If you complete this extra credit, you also get both of the 1 point extra credits for upvoting. +2
-
-trying:
-* If your bot writes more than 1000 comments, you get this extra credit. +1 
-* Have the responses of your bot somehow depend on what the comment you are replying to is saying... The amount of extra credit you get for this will vary depending on the creativity of your idea. +5
+* trying:
+    * If your bot writes more than 1000 comments, you get this extra credit. +1 
+    * Have the responses of your bot somehow depend on what the comment you are replying to is saying... The amount of extra credit you get for this will vary depending on the creativity of your idea. +5
  
 list of tasks not completed:
 * Create an army of at least 10 bots that all upvote posts according to the same criteria. This will let you manipulate which posts/comments are the most upvoted, and therefore the most read. If your bot army contains 30 bots you'll get an additional 2 points of extra credit. (+2)
