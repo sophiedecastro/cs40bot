@@ -39,6 +39,3 @@ list of tasks not completed:
 * Have the responses of your bot somehow depend on what the comment you are replying to is saying... The amount of extra credit you get for this will vary depending on the creativity of your idea. (+5)
 * Create an army of at least 10 bots that all upvote posts according to the same criteria. This will let you manipulate which posts/comments are the most upvoted, and therefore the most read. If your bot army contains 30 bots you'll get an additional 2 points of extra credit. (+2)
 * Use the GPT-2 model to generate complex political messages. (+5)
-
-
-adfsergkjreahgkjrg
