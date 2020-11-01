@@ -13,7 +13,7 @@ this is one of my favorite threads involving my bot because the comment it is re
 check it out [on Reddit](https://www.reddit.com/r/csci040temp/comments/jhb20w/2020_debate_thread/ga8eifl?utm_source=share&utm_medium=web2x&context=3)
 
 ## bot_counter.py
-output of bot_counter.py file:
+output of bot_counter.py file: 720 comments 
 ```
 Sophies-MacBook-Air:cs40bot SophieD$ /Library/Frameworks/Python.framework/Versions/3.8/bin/python3 /Users/SophieD/Documents/GitHub/
 cs40bot/bot_counter.py
