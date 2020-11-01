@@ -131,10 +131,6 @@ def generate_comment():
     text = random.choice(comments)()
     return text
 
-# comment these lines out for now
-# for i in range(10):
-#         print(generate_comment())
-
 # connect to reddit 
 reddit = praw.Reddit('bot')
 
@@ -156,8 +152,9 @@ submission = reddit.submission(url=reddit_debate_url)
 
 start_time = datetime.datetime.now()
 
-# extra credit-new submissions
+# extra credit: new submissions
 # DONE
+
 # dem_submissions = []
 # # reddit_debate_url = 'https://www.reddit.com/r/politics/top/?t=month'
 # for submission in reddit.subreddit("politics").top("month"):
@@ -218,7 +215,7 @@ while True:
         # if len(all_comments) >= 1000:
         #     break # stops code
 
-    # extra credit-textblob: comments
+    # extra credit: textblob + upvote/downvote comments/submissions
     # WORKING
         # comment_upvotes = 0
         for comment in all_comments:
@@ -344,6 +341,7 @@ while True:
             print('len(comments_without_replies)=',len(comments_without_replies))
         
     # WORKING
+    # extra credit: sorted replies to comments
         # FIXME (task 4): randomly select a comment from the comments_without_replies list,
         # and reply to that comment
         # sorted: no longer using random choice, want to select in certain order
@@ -369,31 +367,6 @@ while True:
         # HINT:
         # use the generate_comment() function to create the text,
         # and the .reply() function to post it to reddit
-
-        # # ALMOST WORKING - EXTRA CREDIT: UPVOTE COMMENT
-        #     upvoted = False
-        #     for comment in all_comments:
-        #         if 'biden' in comment.body.lower() and upvoted == False:
-        #             comment.upvote()
-        #             upvoted = True
-        #             # print('upvote comment')
-        #     # can check if i've already upvoted and if so skip
-
-        # # ALMOST WORKING - EXTRA CREDIT: UPVOTE SUBMISSION
-        #     upvoted = False # put this after for loop?
-        #     # downvoted = True
-        #     # for submission in reddit.subreddit("csci040").top("month"):
-        #     for submission in reddit.subreddit("csci040temp").top("month"):
-        #         if 'biden' in submission.title.lower() and upvoted == False:
-        #             submission.upvote()
-        #             upvoted = True
-        #     # elif 'trump' in submission.title.lower() and downvoted == True:
-        #     #     submission.downvote()
-        #     #     downvoted = False
-        #         # print('upvote submission')
-
-        #     # elif 'trump' in submission.title.lower():
-        #     #     submission.downvote()
         
     # WORKING 
     # FIXME (task 5): select a new submission for the next iteration;
