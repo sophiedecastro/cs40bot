@@ -14,8 +14,9 @@ check it out [on Reddit](https://www.reddit.com/r/csci040temp/comments/jhb20w/20
 
 ## bot_counter.py
 output of bot_counter.py file:
-```Sophies-MacBook-Air:cs40bot SophieD$ /Library/Frameworks/Python.framework/Versions/3.8/bin/python3 /Users/SophieD/Documents/GitHub/```
-```cs40bot/bot_counter.py```
+```
+Sophies-MacBook-Air:cs40bot SophieD$ /Library/Frameworks/Python.framework/Versions/3.8/bin/python3 /Users/SophieD/Documents/GitHub/
+cs40bot/bot_counter.py
 len(comments)= 1000
 len(top_level_comments)= 21
 len(replies)= 979
@@ -26,7 +27,8 @@ len(valid_replies)= 720
 valid_comments= 720
 ========================================
 NOTE: the number valid_comments is what will be used to determine your extra credit
-Sophies-MacBook-Air:cs40bot SophieD$```
+Sophies-MacBook-Air:cs40bot SophieD$
+```
 
 ## score & tasks 
 
