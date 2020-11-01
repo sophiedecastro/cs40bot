@@ -18,7 +18,7 @@ output of bot_counter.py file:
 
 ## score & tasks 
 
-what i believe my score should be: tbd/20
+what i believe my score should be: 24/20
 
 list of tasks completed:
 
