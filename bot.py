@@ -153,7 +153,7 @@ submission = reddit.submission(url=reddit_debate_url)
 start_time = datetime.datetime.now()
 
 # extra credit: new submissions
-# DONE
+# commented out because DONE posting 20+ submissions
 
 # dem_submissions = []
 # # reddit_debate_url = 'https://www.reddit.com/r/politics/top/?t=month'
